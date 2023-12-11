@@ -8,8 +8,8 @@ class FamilyPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final helloJohn = ref.watch(familyHelloProvider('John'));
-    final helloJane = ref.watch(familyHelloProvider('Jane'));
+    final helloJohn = ref.watch(familyHelloProvider(p_name: 'John'));
+    final helloJane = ref.watch(familyHelloProvider(p_name: 'Jane'));
 
     return Scaffold(
       appBar: AppBar(

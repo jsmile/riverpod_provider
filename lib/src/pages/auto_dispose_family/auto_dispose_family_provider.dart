@@ -1,16 +1,19 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+// import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-final autoDisposeFamilyHelloProvider =
-    Provider.autoDispose.family<String, String>((ProviderRef ref, String name) {
-  print('### autoDisposeFamilyHelloProvider : created !');
+part 'auto_dispose_family_provider.g.dart';
 
-  ref.onDispose(() {
-    print('### autoDisposeFamilyHelloProvider : disposed !');
-  });
+// final autoDisposeFamilyHelloProvider =
+//     Provider.autoDispose.family<String, String>((ProviderRef ref, String name) {
+//   print('### autoDisposeFamilyHelloProvider : created !');
 
-  return 'Hello $name';
-});
+//   ref.onDispose(() {
+//     print('### autoDisposeFamilyHelloProvider : disposed !');
+//   });
+
+//   return 'Hello $name';
+// });
 
 class Counter extends Equatable {
   final int count;
@@ -36,3 +39,26 @@ final counterProvider =
 
   return counter.count;
 });
+
+// final autoDisposeFamilyHelloProvider =
+//     Provider.autoDispose.family<String, String>((ref, name) {
+//   print('### autoDisposeFamilyHelloProvider : created !');
+
+//   ref.onDispose(() {
+//     print('### autoDisposeFamilyHelloProvider : disposed !');
+//   });
+
+//   return 'Hello $name';
+// });
+
+@riverpod
+String autoDisposeFamilyHello(AutoDisposeFamilyHelloRef ref,
+    {required String p_name}) {
+  print('### autoDisposeFamilyHelloProvider : created !');
+
+  ref.onDispose(() {
+    print('### autoDisposeFamilyHelloProvider : disposed !');
+  });
+
+  return 'Hello $p_name';
+}
